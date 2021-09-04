@@ -1,19 +1,21 @@
 import React from "react";
-import {
-  ListItem,
-  List,
-  ListItemText,
-  ListItemAvatar,
-} from "@material-ui/core";
+import { ListItem, List, ListItemText, Button } from "@material-ui/core";
 import "./Todo.css";
+
 function Todo(props) {
+  const { text, index, deleteHandler } = props;
   return (
     <List>
       <ListItem>
-        <ListItemAvatar></ListItemAvatar>
-
-        <ListItemText primary={props.text} secondary="Dummy Deadline" />
+        <ListItemText primary={text} secondary="Dummy Deadline" />
       </ListItem>
+      <Button
+        variant="contained"
+        color="default"
+        onClick={() => deleteHandler(index)}
+      >
+        DELETE ENTRY
+      </Button>
     </List>
   );
 }
